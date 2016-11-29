@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39A43FF11DEDB7A300A223D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A43FF01DEDB7A300A223D2 /* AppDelegate.swift */; };
+		39A43FF31DEDB7A300A223D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A43FF21DEDB7A300A223D2 /* ViewController.swift */; };
+		39A43FF61DEDB7A300A223D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A43FF41DEDB7A300A223D2 /* Main.storyboard */; };
+		39A43FF81DEDB7A300A223D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A43FF71DEDB7A300A223D2 /* Assets.xcassets */; };
+		39A43FFB1DEDB7A300A223D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A43FF91DEDB7A300A223D2 /* LaunchScreen.storyboard */; };
+		39A440061DEDB7A300A223D2 /* RaspberryCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A440051DEDB7A300A223D2 /* RaspberryCarTests.swift */; };
+		39A440111DEDB7A300A223D2 /* RaspberryCarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A440101DEDB7A300A223D2 /* RaspberryCarUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39A440021DEDB7A300A223D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39A43FE51DEDB7A300A223D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39A43FEC1DEDB7A300A223D2;
+			remoteInfo = RaspberryCar;
+		};
+		39A4400D1DEDB7A300A223D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39A43FE51DEDB7A300A223D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39A43FEC1DEDB7A300A223D2;
+			remoteInfo = RaspberryCar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39A43FED1DEDB7A300A223D2 /* RaspberryCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39A43FF01DEDB7A300A223D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		39A43FF21DEDB7A300A223D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39A43FF51DEDB7A300A223D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39A43FF71DEDB7A300A223D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39A43FFA1DEDB7A300A223D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		39A43FFC1DEDB7A300A223D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39A440011DEDB7A300A223D2 /* RaspberryCarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaspberryCarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39A440051DEDB7A300A223D2 /* RaspberryCarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryCarTests.swift; sourceTree = "<group>"; };
+		39A440071DEDB7A300A223D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39A4400C1DEDB7A300A223D2 /* RaspberryCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaspberryCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39A440101DEDB7A300A223D2 /* RaspberryCarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryCarUITests.swift; sourceTree = "<group>"; };
+		39A440121DEDB7A300A223D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39A43FEA1DEDB7A300A223D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39A43FFE1DEDB7A300A223D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39A440091DEDB7A300A223D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39A43FE41DEDB7A300A223D2 = {
+			isa = PBXGroup;
+			children = (
+				39A43FEF1DEDB7A300A223D2 /* RaspberryCar */,
+				39A440041DEDB7A300A223D2 /* RaspberryCarTests */,
+				39A4400F1DEDB7A300A223D2 /* RaspberryCarUITests */,
+				39A43FEE1DEDB7A300A223D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39A43FEE1DEDB7A300A223D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39A43FED1DEDB7A300A223D2 /* RaspberryCar.app */,
+				39A440011DEDB7A300A223D2 /* RaspberryCarTests.xctest */,
+				39A4400C1DEDB7A300A223D2 /* RaspberryCarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39A43FEF1DEDB7A300A223D2 /* RaspberryCar */ = {
+			isa = PBXGroup;
+			children = (
+				39A43FF01DEDB7A300A223D2 /* AppDelegate.swift */,
+				39A43FF21DEDB7A300A223D2 /* ViewController.swift */,
+				39A43FF41DEDB7A300A223D2 /* Main.storyboard */,
+				39A43FF71DEDB7A300A223D2 /* Assets.xcassets */,
+				39A43FF91DEDB7A300A223D2 /* LaunchScreen.storyboard */,
+				39A43FFC1DEDB7A300A223D2 /* Info.plist */,
+			);
+			path = RaspberryCar;
+			sourceTree = "<group>";
+		};
+		39A440041DEDB7A300A223D2 /* RaspberryCarTests */ = {
+			isa = PBXGroup;
+			children = (
+				39A440051DEDB7A300A223D2 /* RaspberryCarTests.swift */,
+				39A440071DEDB7A300A223D2 /* Info.plist */,
+			);
+			path = RaspberryCarTests;
+			sourceTree = "<group>";
+		};
+		39A4400F1DEDB7A300A223D2 /* RaspberryCarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				39A440101DEDB7A300A223D2 /* RaspberryCarUITests.swift */,
+				39A440121DEDB7A300A223D2 /* Info.plist */,
+			);
+			path = RaspberryCarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39A43FEC1DEDB7A300A223D2 /* RaspberryCar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39A440151DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCar" */;
+			buildPhases = (
+				39A43FE91DEDB7A300A223D2 /* Sources */,
+				39A43FEA1DEDB7A300A223D2 /* Frameworks */,
+				39A43FEB1DEDB7A300A223D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RaspberryCar;
+			productName = RaspberryCar;
+			productReference = 39A43FED1DEDB7A300A223D2 /* RaspberryCar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39A440001DEDB7A300A223D2 /* RaspberryCarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39A440181DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCarTests" */;
+			buildPhases = (
+				39A43FFD1DEDB7A300A223D2 /* Sources */,
+				39A43FFE1DEDB7A300A223D2 /* Frameworks */,
+				39A43FFF1DEDB7A300A223D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39A440031DEDB7A300A223D2 /* PBXTargetDependency */,
+			);
+			name = RaspberryCarTests;
+			productName = RaspberryCarTests;
+			productReference = 39A440011DEDB7A300A223D2 /* RaspberryCarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39A4400B1DEDB7A300A223D2 /* RaspberryCarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39A4401B1DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCarUITests" */;
+			buildPhases = (
+				39A440081DEDB7A300A223D2 /* Sources */,
+				39A440091DEDB7A300A223D2 /* Frameworks */,
+				39A4400A1DEDB7A300A223D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39A4400E1DEDB7A300A223D2 /* PBXTargetDependency */,
+			);
+			name = RaspberryCarUITests;
+			productName = RaspberryCarUITests;
+			productReference = 39A4400C1DEDB7A300A223D2 /* RaspberryCarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39A43FE51DEDB7A300A223D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Daniel Gretzke";
+				TargetAttributes = {
+					39A43FEC1DEDB7A300A223D2 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7P7CKKPH5L;
+						ProvisioningStyle = Automatic;
+					};
+					39A440001DEDB7A300A223D2 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7P7CKKPH5L;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 39A43FEC1DEDB7A300A223D2;
+					};
+					39A4400B1DEDB7A300A223D2 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7P7CKKPH5L;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 39A43FEC1DEDB7A300A223D2;
+					};
+				};
+			};
+			buildConfigurationList = 39A43FE81DEDB7A300A223D2 /* Build configuration list for PBXProject "RaspberryCar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39A43FE41DEDB7A300A223D2;
+			productRefGroup = 39A43FEE1DEDB7A300A223D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39A43FEC1DEDB7A300A223D2 /* RaspberryCar */,
+				39A440001DEDB7A300A223D2 /* RaspberryCarTests */,
+				39A4400B1DEDB7A300A223D2 /* RaspberryCarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39A43FEB1DEDB7A300A223D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39A43FFB1DEDB7A300A223D2 /* LaunchScreen.storyboard in Resources */,
+				39A43FF81DEDB7A300A223D2 /* Assets.xcassets in Resources */,
+				39A43FF61DEDB7A300A223D2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39A43FFF1DEDB7A300A223D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39A4400A1DEDB7A300A223D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39A43FE91DEDB7A300A223D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39A43FF31DEDB7A300A223D2 /* ViewController.swift in Sources */,
+				39A43FF11DEDB7A300A223D2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39A43FFD1DEDB7A300A223D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39A440061DEDB7A300A223D2 /* RaspberryCarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39A440081DEDB7A300A223D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39A440111DEDB7A300A223D2 /* RaspberryCarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39A440031DEDB7A300A223D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39A43FEC1DEDB7A300A223D2 /* RaspberryCar */;
+			targetProxy = 39A440021DEDB7A300A223D2 /* PBXContainerItemProxy */;
+		};
+		39A4400E1DEDB7A300A223D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39A43FEC1DEDB7A300A223D2 /* RaspberryCar */;
+			targetProxy = 39A4400D1DEDB7A300A223D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		39A43FF41DEDB7A300A223D2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39A43FF51DEDB7A300A223D2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39A43FF91DEDB7A300A223D2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39A43FFA1DEDB7A300A223D2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39A440131DEDB7A300A223D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39A440141DEDB7A300A223D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39A440161DEDB7A300A223D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7P7CKKPH5L;
+				INFOPLIST_FILE = RaspberryCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		39A440171DEDB7A300A223D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7P7CKKPH5L;
+				INFOPLIST_FILE = RaspberryCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		39A440191DEDB7A300A223D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7P7CKKPH5L;
+				INFOPLIST_FILE = RaspberryCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaspberryCar.app/RaspberryCar";
+			};
+			name = Debug;
+		};
+		39A4401A1DEDB7A300A223D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7P7CKKPH5L;
+				INFOPLIST_FILE = RaspberryCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaspberryCar.app/RaspberryCar";
+			};
+			name = Release;
+		};
+		39A4401C1DEDB7A300A223D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7P7CKKPH5L;
+				INFOPLIST_FILE = RaspberryCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RaspberryCar;
+			};
+			name = Debug;
+		};
+		39A4401D1DEDB7A300A223D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7P7CKKPH5L;
+				INFOPLIST_FILE = RaspberryCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RaspberryCar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39A43FE81DEDB7A300A223D2 /* Build configuration list for PBXProject "RaspberryCar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39A440131DEDB7A300A223D2 /* Debug */,
+				39A440141DEDB7A300A223D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39A440151DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39A440161DEDB7A300A223D2 /* Debug */,
+				39A440171DEDB7A300A223D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39A440181DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39A440191DEDB7A300A223D2 /* Debug */,
+				39A4401A1DEDB7A300A223D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39A4401B1DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39A4401C1DEDB7A300A223D2 /* Debug */,
+				39A4401D1DEDB7A300A223D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39A43FE51DEDB7A300A223D2 /* Project object */;
+}
