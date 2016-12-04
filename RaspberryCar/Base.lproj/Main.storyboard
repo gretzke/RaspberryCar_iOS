@@ -1,26 +1,71 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RaspberryCar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OIk-Yj-KO5">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="376"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qX4-Fg-b5p">
+                                <rect key="frame" x="515" y="172" width="204" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="kKA-c5-rFj"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="SliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Gj0-MR-uk8"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaC-Tc-rgJ">
+                                <rect key="frame" x="417" y="175" width="150" height="24"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Btk-wM-gU7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="eaC-Tc-rgJ" secondAttribute="trailing" constant="80" id="B2Y-fQ-4QJ"/>
+                            <constraint firstItem="eaC-Tc-rgJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FGH-Gt-F3R"/>
+                            <constraint firstItem="OIk-Yj-KO5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rre-rT-nmC"/>
+                            <constraint firstAttribute="trailing" secondItem="OIk-Yj-KO5" secondAttribute="trailing" id="ZDs-4Z-HxO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qX4-Fg-b5p" secondAttribute="trailing" constant="-70" id="ayQ-C8-9lR"/>
+                            <constraint firstItem="OIk-Yj-KO5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bhQ-gP-6fq"/>
+                            <constraint firstItem="OIk-Yj-KO5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hMB-i4-0DM"/>
+                            <constraint firstItem="eaC-Tc-rgJ" firstAttribute="centerY" secondItem="qX4-Fg-b5p" secondAttribute="centerY" id="vPB-Wo-7lO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Label" destination="eaC-Tc-rgJ" id="vAp-cl-Cz6"/>
+                        <outlet property="VertSlider" destination="qX4-Fg-b5p" id="3gi-SN-XnV"/>
+                        <outlet property="VideoStream" destination="OIk-Yj-KO5" id="lGg-pI-Mev"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="31.934032983508249" y="37.600000000000001"/>
         </scene>
     </scenes>
 </document>

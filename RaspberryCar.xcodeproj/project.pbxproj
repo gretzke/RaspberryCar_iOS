@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3941B4AF1DEDDB45001F5BB0 /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = 3941B4AE1DEDDB45001F5BB0 /* Sources */; };
+		3941B4B81DEDFAF5001F5BB0 /* MjpegStreamingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3941B4B71DEDDB82001F5BB0 /* MjpegStreamingKit.framework */; };
+		3941B4BA1DEDFB42001F5BB0 /* MjpegStreamingKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3941B4B71DEDDB82001F5BB0 /* MjpegStreamingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39A43FF11DEDB7A300A223D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A43FF01DEDB7A300A223D2 /* AppDelegate.swift */; };
 		39A43FF31DEDB7A300A223D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A43FF21DEDB7A300A223D2 /* ViewController.swift */; };
 		39A43FF61DEDB7A300A223D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A43FF41DEDB7A300A223D2 /* Main.storyboard */; };
@@ -17,6 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3941B4B61DEDDB82001F5BB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3941B4B21DEDDB82001F5BB0 /* MjpegStreamingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1A2AEA0C1CA9A43A0047FC82;
+			remoteInfo = MjpegStreamingKit;
+		};
 		39A440021DEDB7A300A223D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 39A43FE51DEDB7A300A223D2 /* Project object */;
@@ -33,7 +43,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3941B4B91DEDFB2C001F5BB0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3941B4BA1DEDFB42001F5BB0 /* MjpegStreamingKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3941B4AE1DEDDB45001F5BB0 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
+		3941B4B21DEDDB82001F5BB0 /* MjpegStreamingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MjpegStreamingKit.xcodeproj; path = Sources/MjpegStreamingKit.xcodeproj; sourceTree = "<group>"; };
 		39A43FED1DEDB7A300A223D2 /* RaspberryCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A43FF01DEDB7A300A223D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A43FF21DEDB7A300A223D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3941B4B81DEDFAF5001F5BB0 /* MjpegStreamingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +100,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3941B4B11DEDDB82001F5BB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3941B4B21DEDDB82001F5BB0 /* MjpegStreamingKit.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3941B4B31DEDDB82001F5BB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3941B4B71DEDDB82001F5BB0 /* MjpegStreamingKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		39A43FE41DEDB7A300A223D2 = {
 			isa = PBXGroup;
 			children = (
+				3941B4AE1DEDDB45001F5BB0 /* Sources */,
 				39A43FEF1DEDB7A300A223D2 /* RaspberryCar */,
 				39A440041DEDB7A300A223D2 /* RaspberryCarTests */,
 				39A4400F1DEDB7A300A223D2 /* RaspberryCarUITests */,
 				39A43FEE1DEDB7A300A223D2 /* Products */,
+				3941B4B11DEDDB82001F5BB0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +179,7 @@
 				39A43FE91DEDB7A300A223D2 /* Sources */,
 				39A43FEA1DEDB7A300A223D2 /* Frameworks */,
 				39A43FEB1DEDB7A300A223D2 /* Resources */,
+				3941B4B91DEDFB2C001F5BB0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -221,6 +266,12 @@
 			mainGroup = 39A43FE41DEDB7A300A223D2;
 			productRefGroup = 39A43FEE1DEDB7A300A223D2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3941B4B31DEDDB82001F5BB0 /* Products */;
+					ProjectRef = 3941B4B21DEDDB82001F5BB0 /* MjpegStreamingKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				39A43FEC1DEDB7A300A223D2 /* RaspberryCar */,
@@ -230,6 +281,16 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		3941B4B71DEDDB82001F5BB0 /* MjpegStreamingKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MjpegStreamingKit.framework;
+			remoteRef = 3941B4B61DEDDB82001F5BB0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		39A43FEB1DEDB7A300A223D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -238,6 +299,7 @@
 				39A43FFB1DEDB7A300A223D2 /* LaunchScreen.storyboard in Resources */,
 				39A43FF81DEDB7A300A223D2 /* Assets.xcassets in Resources */,
 				39A43FF61DEDB7A300A223D2 /* Main.storyboard in Resources */,
+				3941B4AF1DEDDB45001F5BB0 /* Sources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7P7CKKPH5L;
 				INFOPLIST_FILE = RaspberryCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7P7CKKPH5L;
 				INFOPLIST_FILE = RaspberryCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gretzke.RaspberryCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +578,7 @@
 				39A440171DEDB7A300A223D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39A440181DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCarTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +587,7 @@
 				39A4401A1DEDB7A300A223D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39A4401B1DEDB7A300A223D2 /* Build configuration list for PBXNativeTarget "RaspberryCarUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +596,7 @@
 				39A4401D1DEDB7A300A223D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
