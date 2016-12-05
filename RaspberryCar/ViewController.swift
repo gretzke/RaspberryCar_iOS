@@ -13,6 +13,10 @@ import MjpegStreamingKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var SwitchLabel: UILabel!
+    
+    @IBOutlet weak var Switch: UISwitch!
+    
 // Geschwindigkeitskontrolle
     
     @IBOutlet weak var Label: UILabel!
@@ -28,8 +32,8 @@ class ViewController: UIViewController {
     }
 // TCPSocketStream
     
-    let addr = "192.168.2.106"
-    let port = 4000
+    let addr = "127.0.0.1"
+    let port = 5000
     var out: OutputStream?
     
     var Leftspeed: Double!
@@ -61,11 +65,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.black
         self.Label.text = ""
         self.VertSlider.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
-        
-// force landscape
-//
-//        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-//        UIDevice.current.setValue(value, forKey: "orientation")
+
+        Switch.addTarget(self, action: #selector(ViewController.switchIsChanged), for: UIControlEvents.valueChanged)
         
 // MJPEG Stream
         
@@ -109,16 +110,17 @@ class ViewController: UIViewController {
                     var r = Double(round(100*self!.Rightspeed!)/100) * Double((self?.VertSlider.value)!)
                     
                     l = round(100*l)/100
-                    r = round(100*r)/100
+                    r = round(100*r)/100+10
                     
-                    if round((self?.VertSlider.value)! * 100) <= 10 && round((self?.VertSlider.value)! * 100) >= -10{
+                    if round((self?.VertSlider.value)! * 100) <= 20 && round((self?.VertSlider.value)! * 100) >= -20{
                         l = 0
                         r = 0
                     }
                     
-                    let s = "L=\(l) R=\(r)"
+                    print("L=\(l) R=\(r-10)")
                     
-                    self!.write(s: s)
+                    self!.write(s: "\(l)")
+                    self!.write(s: "\(r)")
                     
                     let rotation = atan2(gravity.x, gravity.y) - M_PI - 1.5
                     self?.VideoStream.transform = CGAffineTransform(rotationAngle: CGFloat(rotation))
@@ -144,14 +146,26 @@ class ViewController: UIViewController {
         outputStream.write(UnsafePointer<UInt8>(datasent), maxLength: 15)
     }
 
-
-// force landscape
-
-//    private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-//        return UIInterfaceOrientationMask.landscapeLeft
-//    }
-//    private func shouldAutorotate() -> Bool {
-//        return true
-//    }
-
+    //Stop-Button
+    
+    @IBAction func StopButton(_ sender: Any) {
+        write(s: "0")
+        write(s: "10")
+    }
+    
+    //Autonom Switch
+    
+    func switchIsChanged(Switch: UISwitch) {
+        if Switch.isOn {
+            SwitchLabel.text = "autonom an"
+            let s = "aut_on"
+            write(s: s)
+        } else {
+            SwitchLabel.text = "autonom aus"
+            let s = "aut_off"
+            write(s: s)
+        }
+    }
+    
+    
 }

@@ -44,21 +44,53 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-yg-ODh">
+                                <rect key="frame" x="54" y="304" width="44" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.018721711901257265" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="STOP!">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="StopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wez-l2-gLj"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXa-cs-QXv">
+                                <rect key="frame" x="41" y="40" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TB-2U-e6t">
+                                <rect key="frame" x="110" y="40.5" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0fQ-TV-oub"/>
+                                    <constraint firstAttribute="height" constant="30" id="b1x-vu-ReC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="c0D-yg-ODh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="34" id="1rd-gJ-213"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eaC-Tc-rgJ" secondAttribute="trailing" constant="80" id="B2Y-fQ-4QJ"/>
                             <constraint firstItem="eaC-Tc-rgJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FGH-Gt-F3R"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c0D-yg-ODh" secondAttribute="bottom" constant="41" id="N8M-0q-2so"/>
                             <constraint firstItem="OIk-Yj-KO5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rre-rT-nmC"/>
                             <constraint firstAttribute="trailing" secondItem="OIk-Yj-KO5" secondAttribute="trailing" id="ZDs-4Z-HxO"/>
+                            <constraint firstItem="PXa-cs-QXv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="21" id="arb-4Q-lnD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qX4-Fg-b5p" secondAttribute="trailing" constant="-70" id="ayQ-C8-9lR"/>
                             <constraint firstItem="OIk-Yj-KO5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bhQ-gP-6fq"/>
+                            <constraint firstItem="6TB-2U-e6t" firstAttribute="centerY" secondItem="PXa-cs-QXv" secondAttribute="centerY" id="f9y-3K-FAv"/>
                             <constraint firstItem="OIk-Yj-KO5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hMB-i4-0DM"/>
+                            <constraint firstItem="PXa-cs-QXv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="s7i-HA-xGs"/>
                             <constraint firstItem="eaC-Tc-rgJ" firstAttribute="centerY" secondItem="qX4-Fg-b5p" secondAttribute="centerY" id="vPB-Wo-7lO"/>
+                            <constraint firstItem="6TB-2U-e6t" firstAttribute="leading" secondItem="PXa-cs-QXv" secondAttribute="trailing" constant="20" id="zZV-cO-i8r"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="Label" destination="eaC-Tc-rgJ" id="vAp-cl-Cz6"/>
+                        <outlet property="Switch" destination="PXa-cs-QXv" id="dBX-gc-bz9"/>
+                        <outlet property="SwitchLabel" destination="6TB-2U-e6t" id="s0N-Sv-qaY"/>
                         <outlet property="VertSlider" destination="qX4-Fg-b5p" id="3gi-SN-XnV"/>
                         <outlet property="VideoStream" destination="OIk-Yj-KO5" id="lGg-pI-Mev"/>
                     </connections>
