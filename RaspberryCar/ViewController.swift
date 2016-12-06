@@ -32,8 +32,8 @@ class ViewController: UIViewController {
     }
 // TCPSocketStream
     
-    let addr = "127.0.0.1"
-    let port = 5000
+    let addr = "192.168.2.106"
+    let port = 6000
     var out: OutputStream?
     
     var Leftspeed: Double!
@@ -80,22 +80,22 @@ class ViewController: UIViewController {
 
         if manager.isDeviceMotionAvailable {
             print("accelerometer available")
-            manager.deviceMotionUpdateInterval = 0.05
+            manager.deviceMotionUpdateInterval = 0.2
             manager.startDeviceMotionUpdates(to: OperationQueue.main){
                 [weak self] (data: CMDeviceMotion?, error: Error?) in
                 if let gravity = data?.gravity {
                     self!.ywert = gravity.y
                     print(gravity.y)
-                    if (self!.ywert!)>0.0 {
+                    if (self!.ywert!)<0.0 {
                         self!.Leftspeed = 1
-                        self!.Rightspeed = ((self!.ywert!) - 1) * -1
+                        self!.Rightspeed = ((self!.ywert!) + 1)
                         if self!.Rightspeed<0.2{
                             self!.Rightspeed = -1
                         }
                     }
-                    if (self!.ywert!)<0.0 {
+                    if (self!.ywert!)>0.0 {
                         self!.Rightspeed = 1
-                        self!.Leftspeed = ((self!.ywert!) + 1)
+                        self!.Leftspeed = ((self!.ywert!) - 1) * -1
                         if self!.Leftspeed<0.2{
                             self!.Leftspeed = -1
                         }
@@ -117,7 +117,7 @@ class ViewController: UIViewController {
                         r = 0
                     }
                     
-                    print("L=\(l) R=\(r-10)")
+                    print("L=\(l) R=\(r)")
                     
                     self!.write(s: "\(l)")
                     self!.write(s: "\(r)")
@@ -143,7 +143,7 @@ class ViewController: UIViewController {
         outputStream.open()
         let data: NSData = s.data(using: String.Encoding.utf8)! as NSData
         let datasent = data.bytes.assumingMemoryBound(to: UInt8.self)
-        outputStream.write(UnsafePointer<UInt8>(datasent), maxLength: 15)
+        outputStream.write(UnsafePointer<UInt8>(datasent), maxLength: s.characters.count)
     }
 
     //Stop-Button
@@ -157,12 +157,12 @@ class ViewController: UIViewController {
     
     func switchIsChanged(Switch: UISwitch) {
         if Switch.isOn {
-            SwitchLabel.text = "autonom an"
-            let s = "aut_on"
+            //SwitchLabel.text = "autonom aus"
+            let s = "aut_off"
             write(s: s)
         } else {
-            SwitchLabel.text = "autonom aus"
-            let s = "aut_off"
+            //SwitchLabel.text = "autonom an"
+            let s = "aut_on"
             write(s: s)
         }
     }
