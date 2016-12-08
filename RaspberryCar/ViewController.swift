@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 // TCPSocketStream
     
     let addr = "192.168.2.106"
-    let port = 6000
+    let port = 4040
     var out: OutputStream?
     
     var Leftspeed: Double!
@@ -65,7 +65,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.black
         self.Label.text = ""
         self.VertSlider.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
-
+        Switch.backgroundColor = UIColor.blue
+        Switch.layer.cornerRadius = 16.0
         Switch.addTarget(self, action: #selector(ViewController.switchIsChanged), for: UIControlEvents.valueChanged)
         
 // MJPEG Stream
@@ -80,7 +81,7 @@ class ViewController: UIViewController {
 
         if manager.isDeviceMotionAvailable {
             print("accelerometer available")
-            manager.deviceMotionUpdateInterval = 0.2
+            manager.deviceMotionUpdateInterval = 0.1
             manager.startDeviceMotionUpdates(to: OperationQueue.main){
                 [weak self] (data: CMDeviceMotion?, error: Error?) in
                 if let gravity = data?.gravity {
@@ -149,19 +150,21 @@ class ViewController: UIViewController {
     //Stop-Button
     
     @IBAction func StopButton(_ sender: Any) {
-        write(s: "0")
-        write(s: "10")
+
+        self.VertSlider.value = 0
+        self.Label.text = "Stop"
+        
     }
     
     //Autonom Switch
     
     func switchIsChanged(Switch: UISwitch) {
         if Switch.isOn {
-            //SwitchLabel.text = "autonom aus"
+            SwitchLabel.text = "Manuell"
             let s = "aut_off"
             write(s: s)
         } else {
-            //SwitchLabel.text = "autonom an"
+            SwitchLabel.text = "Autonom"
             let s = "aut_on"
             write(s: s)
         }
