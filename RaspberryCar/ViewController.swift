@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }
 // TCPSocketStream
     
-    let addr = "192.168.2.106"
+    let addr = "192.168.178.25"
     let port = 4040
     var out: OutputStream?
     
@@ -133,6 +133,9 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        self.VertSlider.value = 0
+        self.Label.text = "Stop"
+
         // Dispose of any resources that can be recreated.
     }
 
@@ -169,6 +172,5 @@ class ViewController: UIViewController {
             write(s: s)
         }
     }
-    
     
 }
