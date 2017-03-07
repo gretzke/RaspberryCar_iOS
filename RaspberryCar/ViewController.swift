@@ -9,32 +9,38 @@
 import UIKit
 import CoreMotion
 import MjpegStreamingKit
+import Foundation
 
+var l = 0.0
+var r = 0.0
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, StreamDelegate {
     
     @IBOutlet weak var SwitchLabel: UILabel!
     
+    @IBOutlet weak var connectButton: UIButton!
+    
     @IBOutlet weak var Switch: UISwitch!
     
-// Geschwindigkeitskontrolle
+    // Geschwindigkeitskontrolle
     
     @IBOutlet weak var Label: UILabel!
-
+    
     @IBOutlet weak var VertSlider: UISlider!
     
     @IBAction func SliderAction(_ sender: UISlider) {
         if round(VertSlider.value * 100) <= 10 && round(VertSlider.value * 100) >= -10{
             self.Label.text = "Stop"
         } else {
-        self.Label.text = "\(round(VertSlider.value * 100))%"
+            self.Label.text = "\(round(VertSlider.value * 10)*10)%"
         }
     }
-// TCPSocketStream
+    // TCPSocketStream
     
-    let addr = "192.168.178.25"
-    let port = 4040
-    var out: OutputStream?
+    let addr = "172.24.1.1"
+    let port = 4000
+    var outputStream: OutputStream = nil
+    var inputStream: InputStream = nil
     
     var Leftspeed: Double!
     var Rightspeed: Double!
@@ -42,12 +48,12 @@ class ViewController: UIViewController {
     var xwert: Double?
     var ywert: Double?
     var zwert: Double?
-
-// Gyrosensor
+    
+    // Gyrosensor
     
     let manager = CMMotionManager()
-
-// MJPEG Stream
+    
+    // MJPEG Stream
     
     @IBOutlet weak var VideoStream: UIImageView!
     
@@ -58,6 +64,76 @@ class ViewController: UIViewController {
     var screenWidth = UIScreen.main.bounds.width
     var screenHeight = UIScreen.main.bounds.height
     
+    @IBAction func connect(_ sender: Any) {
+        
+        // Setup TCP SocketStream
+        if inputStream == nil && outputStream == nil {
+            connect(host: addr, port: port)
+            
+            // MJPEG Stream
+            
+            VideoStream.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+            streamingController = MjpegStreamingController(imageView: VideoStream)
+            url = URL(string: "http://172.24.1.1:8080/?action=stream")
+            streamingController.contentURL = url
+            streamingController.play()
+            
+            // Gyrosensor
+            
+            if manager.isDeviceMotionAvailable {
+                manager.deviceMotionUpdateInterval = 0.1
+                manager.startDeviceMotionUpdates(to: OperationQueue.main){
+                    [weak self] (data: CMDeviceMotion?, error: Error?) in
+                    if let gravity = data?.gravity {
+                        self?.ywert = gravity.y
+                        if (self?.ywert)!<0.0 {
+                            self?.Leftspeed = 1
+                            self?.Rightspeed = ((self?.ywert)! + 1)
+                            if self!.Rightspeed<=0.2{
+                                self?.Rightspeed = -1
+                            }
+                        }
+                        if (self?.ywert)!>0.0 {
+                            self?.Rightspeed = 1
+                            self?.Leftspeed = ((self?.ywert)! - 1) * -1
+                            if self!.Leftspeed<=0.2{
+                                self?.Leftspeed = -1
+                            }
+                        }
+                        
+                        if (self?.ywert)==0.0 {
+                            self?.Leftspeed = 1
+                            self?.Rightspeed = 1
+                        }
+                        
+                        l = Double(round(100*(self?.Leftspeed!)!)/100) * Double((self?.VertSlider.value)!)
+                        r = Double(round(100*(self?.Rightspeed!)!)/100) * Double((self?.VertSlider.value)!)
+                        
+                        l = round(10*l)/10
+                        r = round(10*r)/10+10
+                        if round((self?.VertSlider.value)! * 100) <= 20 && round((self?.VertSlider.value)! * 100) >= -20{
+                            l = 0
+                            r = 10
+                        }
+                    }
+                }
+            }
+            self.connectButton.text = "Disconnect"
+        }
+        if inputStream != nil && outputStream != nil {
+            inputStream!.close()
+            outputStream!.close()
+            inputStream!.remove(from: .main, forMode: RunLoopMode.defaultRunLoopMode)
+            outputStream!.remove(from: .main, forMode: RunLoopMode.defaultRunLoopMode)
+            inputStream.delegate = nil
+            outputStream.delegate = nil
+            inputStream!.release()
+            outputStream!.release()
+            inputStream = nil
+            outputStream = nil
+            self.connectButton.text = "Connect"
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -68,109 +144,96 @@ class ViewController: UIViewController {
         Switch.backgroundColor = UIColor.blue
         Switch.layer.cornerRadius = 16.0
         Switch.addTarget(self, action: #selector(ViewController.switchIsChanged), for: UIControlEvents.valueChanged)
-        
-// MJPEG Stream
-        
-        VideoStream.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
-        streamingController = MjpegStreamingController(imageView: VideoStream)
-        url = URL(string: "http://80.32.204.149:8080/mjpg/video.mjpg")
-        streamingController.contentURL = url
-        streamingController.play()
-
-// Gyrosensor
-
-        if manager.isDeviceMotionAvailable {
-            print("accelerometer available")
-            manager.deviceMotionUpdateInterval = 0.1
-            manager.startDeviceMotionUpdates(to: OperationQueue.main){
-                [weak self] (data: CMDeviceMotion?, error: Error?) in
-                if let gravity = data?.gravity {
-                    self!.ywert = gravity.y
-                    print(gravity.y)
-                    if (self!.ywert!)<0.0 {
-                        self!.Leftspeed = 1
-                        self!.Rightspeed = ((self!.ywert!) + 1)
-                        if self!.Rightspeed<0.2{
-                            self!.Rightspeed = -1
-                        }
-                    }
-                    if (self!.ywert!)>0.0 {
-                        self!.Rightspeed = 1
-                        self!.Leftspeed = ((self!.ywert!) - 1) * -1
-                        if self!.Leftspeed<0.2{
-                            self!.Leftspeed = -1
-                        }
-                    }
-                    
-                    if (self!.ywert!)==0.0 {
-                        self!.Leftspeed = 1
-                        self!.Rightspeed = 1
-                    }
-                    
-                    var l = Double(round(100*self!.Leftspeed!)/100) * Double((self?.VertSlider.value)!)
-                    var r = Double(round(100*self!.Rightspeed!)/100) * Double((self?.VertSlider.value)!)
-                    
-                    l = round(100*l)/100
-                    r = round(100*r)/100+10
-                    
-                    if round((self?.VertSlider.value)! * 100) <= 20 && round((self?.VertSlider.value)! * 100) >= -20{
-                        l = 0
-                        r = 0
-                    }
-                    
-                    print("L=\(l) R=\(r)")
-                    
-                    self!.write(s: "\(l)")
-                    self!.write(s: "\(r)")
-                    
-                    let rotation = atan2(gravity.x, gravity.y) - M_PI - 1.5
-                    self?.VideoStream.transform = CGAffineTransform(rotationAngle: CGFloat(rotation))
-                    
-                }
+    }
+    
+    func connect (host: String, port: Int) {
+        Stream.getStreamsToHost(withName: addr, port: port, inputStream: &inputStream, outputStream: &outputStream)
+        if outputStream != nil {
+            outputStream!.delegate = self
+            inputStream!.delegate = self
+            outputStream!.schedule(in: .main, forMode: RunLoopMode.defaultRunLoopMode)
+            inputStream!.schedule(in: .main, forMode: RunLoopMode.defaultRunLoopMode)
+            outputStream!.open()
+            inputStream!.open()
+        }
+    }
+    func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
+        if aStream === inputStream {
+            switch eventCode {
+            case Stream.Event.errorOccurred:
+                print("input: ErrorOccurred: \(aStream.streamError?.localizedDescription)")
+                self.Label.text = "Disconnected"
+            case Stream.Event.openCompleted:
+                print("input: OpenCompleted")
+            case Stream.Event.hasBytesAvailable:
+                print("input: HasBytesAvailable")
+                
+                // Here you can `read()` from `inputStream`
+                
+            default:
+                break
+            }
+        }
+        else if aStream === outputStream {
+            switch eventCode {
+            case Stream.Event.errorOccurred:
+                print("output: ErrorOccurred: \(aStream.streamError?.localizedDescription)")
+                self.Label.text = "Disconnected"
+            case Stream.Event.openCompleted:
+                print("output: OpenCompleted")
+            case Stream.Event.hasSpaceAvailable:
+                //                print("output: HasSpaceAvailable")
+                connectButton.isHidden = true
+                // Here you can write() to `outputStream`
+                print("L=\(l) R=\(r)")
+                self.write(s: "\(l)")
+                self.write(s: "\(r)")
+                usleep(10000)
+            default:
+                break
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         self.VertSlider.value = 0
         self.Label.text = "Stop"
-
+        
         // Dispose of any resources that can be recreated.
     }
-
-// Write funktion für TCPSocket
+    
+    // Write funktion für TCPSocket
     
     func write(s: String){
-        Stream.getStreamsToHost(withName: addr, port: port, inputStream: nil, outputStream: &out)
-        let outputStream = out!
-        outputStream.open()
-        let data: NSData = s.data(using: String.Encoding.utf8)! as NSData
+        var str = s
+        if str.characters.count < 4 {
+            str = "\(str)0"
+        }
+        let data: NSData = str.data(using: String.Encoding.utf8)! as NSData
         let datasent = data.bytes.assumingMemoryBound(to: UInt8.self)
-        outputStream.write(UnsafePointer<UInt8>(datasent), maxLength: s.characters.count)
+        outputStream!.write(UnsafePointer<UInt8>(datasent), maxLength: str.characters.count)
     }
-
+    
     //Stop-Button
     
     @IBAction func StopButton(_ sender: Any) {
-
         self.VertSlider.value = 0
         self.Label.text = "Stop"
-        
     }
     
     //Autonom Switch
     
     func switchIsChanged(Switch: UISwitch) {
-        if Switch.isOn {
-            SwitchLabel.text = "Manuell"
-            let s = "aut_off"
-            write(s: s)
-        } else {
-            SwitchLabel.text = "Autonom"
-            let s = "aut_on"
-            write(s: s)
-        }
+        //        if Switch.isOn {
+        //            SwitchLabel.text = "Manuell"
+        //            let s = "aut_off"
+        //            write(f: s)
+        //        } else {
+        //            SwitchLabel.text = "Autonom"
+        //            let s = "aut_on"
+        //            write(f: s)
+        //        }
     }
     
 }

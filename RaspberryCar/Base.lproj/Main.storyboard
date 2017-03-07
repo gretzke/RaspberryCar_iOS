@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +45,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-yg-ODh">
-                                <rect key="frame" x="54" y="304" width="44" height="30"/>
+                                <rect key="frame" x="54" y="305" width="44" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.018721711901257265" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="STOP!">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,13 +68,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhI-Be-3w0">
+                                <rect key="frame" x="304" y="305" width="59" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tNb-ma-2yE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="c0D-yg-ODh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="34" id="1rd-gJ-213"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eaC-Tc-rgJ" secondAttribute="trailing" constant="80" id="B2Y-fQ-4QJ"/>
                             <constraint firstItem="eaC-Tc-rgJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FGH-Gt-F3R"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c0D-yg-ODh" secondAttribute="bottom" constant="41" id="N8M-0q-2so"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lhI-Be-3w0" secondAttribute="bottom" constant="40" id="JyJ-GT-Ucs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c0D-yg-ODh" secondAttribute="bottom" constant="40" id="N8M-0q-2so"/>
                             <constraint firstItem="OIk-Yj-KO5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rre-rT-nmC"/>
                             <constraint firstAttribute="trailing" secondItem="OIk-Yj-KO5" secondAttribute="trailing" id="ZDs-4Z-HxO"/>
                             <constraint firstItem="PXa-cs-QXv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="21" id="arb-4Q-lnD"/>
@@ -82,6 +91,7 @@
                             <constraint firstItem="OIk-Yj-KO5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bhQ-gP-6fq"/>
                             <constraint firstItem="6TB-2U-e6t" firstAttribute="centerY" secondItem="PXa-cs-QXv" secondAttribute="centerY" id="f9y-3K-FAv"/>
                             <constraint firstItem="OIk-Yj-KO5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hMB-i4-0DM"/>
+                            <constraint firstItem="lhI-Be-3w0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rdx-Nh-gSw"/>
                             <constraint firstItem="PXa-cs-QXv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="s7i-HA-xGs"/>
                             <constraint firstItem="eaC-Tc-rgJ" firstAttribute="centerY" secondItem="qX4-Fg-b5p" secondAttribute="centerY" id="vPB-Wo-7lO"/>
                             <constraint firstItem="6TB-2U-e6t" firstAttribute="leading" secondItem="PXa-cs-QXv" secondAttribute="trailing" constant="20" id="zZV-cO-i8r"/>
@@ -93,6 +103,7 @@
                         <outlet property="SwitchLabel" destination="6TB-2U-e6t" id="s0N-Sv-qaY"/>
                         <outlet property="VertSlider" destination="qX4-Fg-b5p" id="3gi-SN-XnV"/>
                         <outlet property="VideoStream" destination="OIk-Yj-KO5" id="lGg-pI-Mev"/>
+                        <outlet property="connectButton" destination="lhI-Be-3w0" id="92t-4P-puj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
