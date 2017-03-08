@@ -13,6 +13,10 @@ import Foundation
 
 var l = 0.0
 var r = 0.0
+var outputStream: OutputStream?
+var inputStream: InputStream?
+var outputStreamAut: OutputStream?
+var inputStreamAut: InputStream?
 
 class ViewController: UIViewController, StreamDelegate {
     
@@ -39,8 +43,7 @@ class ViewController: UIViewController, StreamDelegate {
     
     let addr = "172.24.1.1"
     let port = 4000
-    var outputStream: OutputStream = nil
-    var inputStream: InputStream = nil
+    let portAut = 4001
     
     var Leftspeed: Double!
     var Rightspeed: Double!
@@ -64,10 +67,29 @@ class ViewController: UIViewController, StreamDelegate {
     var screenWidth = UIScreen.main.bounds.width
     var screenHeight = UIScreen.main.bounds.height
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.Label.text = ""
+        self.VertSlider.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        Switch.backgroundColor = UIColor.blue
+        Switch.layer.cornerRadius = 16.0
+        Switch.addTarget(self, action: #selector(ViewController.switchIsChanged), for: UIControlEvents.valueChanged)
+    }
+    
     @IBAction func connect(_ sender: Any) {
-        
-        // Setup TCP SocketStream
-        if inputStream == nil && outputStream == nil {
+        if inputStream != nil && outputStream != nil {
+            inputStream!.close()
+            outputStream!.close()
+            inputStream!.remove(from: .main, forMode: RunLoopMode.defaultRunLoopMode)
+            outputStream!.remove(from: .main, forMode: RunLoopMode.defaultRunLoopMode)
+            inputStream!.delegate = nil
+            outputStream!.delegate = nil
+            inputStream = nil
+            outputStream = nil
+            self.connectButton.setTitle("Connect", for: .normal)
+        } else {
+            // Setup TCP SocketStream
             connect(host: addr, port: port)
             
             // MJPEG Stream
@@ -81,7 +103,7 @@ class ViewController: UIViewController, StreamDelegate {
             // Gyrosensor
             
             if manager.isDeviceMotionAvailable {
-                manager.deviceMotionUpdateInterval = 0.1
+                manager.deviceMotionUpdateInterval = 0.2
                 manager.startDeviceMotionUpdates(to: OperationQueue.main){
                     [weak self] (data: CMDeviceMotion?, error: Error?) in
                     if let gravity = data?.gravity {
@@ -111,6 +133,7 @@ class ViewController: UIViewController, StreamDelegate {
                         
                         l = round(10*l)/10
                         r = round(10*r)/10+10
+                        
                         if round((self?.VertSlider.value)! * 100) <= 20 && round((self?.VertSlider.value)! * 100) >= -20{
                             l = 0
                             r = 10
@@ -118,33 +141,10 @@ class ViewController: UIViewController, StreamDelegate {
                     }
                 }
             }
-            self.connectButton.text = "Disconnect"
-        }
-        if inputStream != nil && outputStream != nil {
-            inputStream!.close()
-            outputStream!.close()
-            inputStream!.remove(from: .main, forMode: RunLoopMode.defaultRunLoopMode)
-            outputStream!.remove(from: .main, forMode: RunLoopMode.defaultRunLoopMode)
-            inputStream.delegate = nil
-            outputStream.delegate = nil
-            inputStream!.release()
-            outputStream!.release()
-            inputStream = nil
-            outputStream = nil
-            self.connectButton.text = "Connect"
+            self.connectButton.setTitle("Disconnect", for: .normal)
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black
-        self.Label.text = ""
-        self.VertSlider.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
-        Switch.backgroundColor = UIColor.blue
-        Switch.layer.cornerRadius = 16.0
-        Switch.addTarget(self, action: #selector(ViewController.switchIsChanged), for: UIControlEvents.valueChanged)
-    }
     
     func connect (host: String, port: Int) {
         Stream.getStreamsToHost(withName: addr, port: port, inputStream: &inputStream, outputStream: &outputStream)
@@ -183,7 +183,6 @@ class ViewController: UIViewController, StreamDelegate {
                 print("output: OpenCompleted")
             case Stream.Event.hasSpaceAvailable:
                 //                print("output: HasSpaceAvailable")
-                connectButton.isHidden = true
                 // Here you can write() to `outputStream`
                 print("L=\(l) R=\(r)")
                 self.write(s: "\(l)")
@@ -235,5 +234,11 @@ class ViewController: UIViewController, StreamDelegate {
         //            write(f: s)
         //        }
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if inputStream != nil && outputStream != nil {
+            self.connectButton.setTitle("Connect", for: .normal)
+        } else {
+            self.connectButton.setTitle("Disconnect", for: .normal)
+        }
+    }
 }
